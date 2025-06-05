@@ -1,8 +1,26 @@
-import React from "react";
 import { useNavigate } from "react-router";
+import { useReducer } from "react";
+import "./Login.css";
+
+const initialForm = {
+    userName: "",
+    password: "",
+};
+
+function formReducer(state, action) {
+    switch (action.type) {
+        case "change":
+            return { ...state, [action.field]: action.value };
+        case "reset":
+            return initialForm;
+        default:
+            return state;
+    }
+}
 
 const Login = () => {
     const navigate = useNavigate();
+    const [state, dispatch] = useReducer(formReducer, initialForm);
 
     return (
         <div>
@@ -10,20 +28,34 @@ const Login = () => {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    // Handle login logic here
-                    localStorage.setItem("auth", "true");
+                    localStorage.setItem(state.userName, state.password);
+                    dispatch({ type: "reset" });
                     navigate("/dashboard");
                     console.log("Login form submitted");
-                }}
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    width: "300px",
-                    margin: "auto",
-                    gap: "1rem",
                 }}>
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password" />
+                <input
+                    value={state.userName}
+                    onChange={(e) =>
+                        dispatch({
+                            type: "change",
+                            field: "userName",
+                            value: e.target.value,
+                        })
+                    }
+                    placeholder="Username"
+                />
+                <input
+                    type="password"
+                    value={state.password}
+                    onChange={(e) =>
+                        dispatch({
+                            type: "change",
+                            field: "password",
+                            value: e.target.value,
+                        })
+                    }
+                    placeholder="Password"
+                />
                 <button type="submit">Login</button>
             </form>
         </div>
