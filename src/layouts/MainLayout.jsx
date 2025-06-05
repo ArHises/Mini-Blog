@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 
+import "./MainLayout.css"; // Assuming you have a CSS file for styling
+
 const MainLayout = () => {
     return (
         <div>
             <Navbar />
-            <main style={{ padding: "2rem" }}>
+            <main>
                 <Outlet />
             </main>
         </div>

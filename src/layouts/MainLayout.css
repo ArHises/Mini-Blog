@@ -1,0 +1,18 @@
+main > div {
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+}
+
+main > div {
+    margin: 10%;
+    background: #000000aa;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    margin-top: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
