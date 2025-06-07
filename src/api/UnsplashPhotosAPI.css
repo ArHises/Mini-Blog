@@ -1,0 +1,29 @@
+.unsplash-slider {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+.unsplash-slider img {
+    flex: 0 0 auto;
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #646cff33;
+    background: #23233a;
+    box-sizing: border-box;
+}
+@media (max-width: 700px) {
+    .unsplash-slider {
+        max-width: 100vw;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+    .unsplash-slider img {
+        max-width: 45vw;
+    }
+}

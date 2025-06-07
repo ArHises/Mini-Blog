@@ -1,10 +1,13 @@
 .comments-container {
-    width: 50%;
+    width: 100%;
+    max-width: 600px;
     margin: 2rem auto;
     background: rgba(18, 18, 18, 0.7);
     border-radius: 12px;
     box-shadow: 0 2px 8px #646cffaa;
     padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .comments-container h1 {
@@ -84,6 +87,9 @@
     padding: 0;
     margin: 0;
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .comments-list li {
@@ -96,6 +102,9 @@
     font-size: 1em;
     color: #222;
     text-align: left;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .comments-list strong {
@@ -116,6 +125,14 @@
     margin: 0.5em 0;
 }
 
+.comments-container img,
+.comments-list img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
 @media only screen and (max-width: 768px) {
     .comments-form {
         display: flex;
@@ -123,15 +140,15 @@
         flex-direction: column;
     }
     .comments-container {
-        width: 90%;
-        padding: 1rem;
+        max-width: 100vw;
+        padding: 1rem 0.5rem;
     }
     .comments-container h1 {
         font-size: 1.3rem;
         text-align: center;
     }
     .comments-container form {
-        width: 75%;
+        width: 100%;
         align-items: center;
     }
     .comments-container input[type="text"],
@@ -153,5 +170,13 @@
     }
     .comment-input input[type="text"] {
         width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .comments-container {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 1rem 0.2rem;
     }
 }

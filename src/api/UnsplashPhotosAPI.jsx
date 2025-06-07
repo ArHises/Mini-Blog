@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./UnsplashPhotosAPI.css";
 
 const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_KEY;
 
@@ -21,13 +22,17 @@ export default function PhotosFetcher() {
     return (
         <div>
             <h1>Unsplash Images</h1>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div className="unsplash-slider">
                 {images.map((img) => (
                     <img
                         key={img.id}
                         src={img.urls.small}
                         alt={img.alt_description}
-                        style={{ width: "200px", margin: "10px" }}
+                        style={{
+                            width: "200px",
+                            margin: "10px 10px 10px 0",
+                            borderRadius: "8px",
+                        }}
                     />
                 ))}
             </div>
