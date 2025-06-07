@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useUser } from "../contexts/UserContext";
 
 function RequireAuth({ children }) {
-    const isLoggedIn = localStorage.getItem("auth") === "true";
+    const { user, setUser } = useUser();
+
+    const isLoggedIn =
+        user && user.userName === "admin" && user.password === "admin"; // Adjust this condition based on your auth logic
     const navigate = useNavigate();
 
     useEffect(() => {

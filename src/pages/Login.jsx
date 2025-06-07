@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router";
 import { useReducer } from "react";
+
+import { useUser } from "../contexts/UserContext";
 import "./Login.css";
 
 const initialForm = {
@@ -21,6 +23,33 @@ function formReducer(state, action) {
 const Login = () => {
     const navigate = useNavigate();
     const [state, dispatch] = useReducer(formReducer, initialForm);
+    const { user, setUser } = useUser();
+
+    const registerUser = (userName, password) => {
+        // Simulate a registration process
+        console.log(`Registering user: ${userName} with password: ${password}`);
+        setUser({ userName, password });
+        console.log("User registered:", user);
+    };
+
+    const logOutUser = () => {
+        // Simulate a logout process
+        console.log("Logging out user");
+        setUser(null);
+        console.log("User logged out");
+    };
+
+    if (user) {
+        return (
+            <div>
+                <h1>Welcome back, {user.userName}!</h1>
+                <p>You are already logged in.</p>
+                <button className="logout-button" onClick={logOutUser}>
+                    Logout
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div>
@@ -28,10 +57,9 @@ const Login = () => {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    localStorage.setItem(state.userName, state.password);
+                    registerUser(state.userName, state.password);
                     dispatch({ type: "reset" });
                     navigate("/dashboard");
-                    console.log("Login form submitted");
                 }}>
                 <input
                     value={state.userName}
