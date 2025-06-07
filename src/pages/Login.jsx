@@ -1,28 +1,11 @@
 import { useNavigate } from "react-router";
-import { useReducer } from "react";
-
+import { useForm } from "../hooks/useForm";
 import { useUser } from "../contexts/UserContext";
 import "./Login.css";
 
-const initialForm = {
-    userName: "",
-    password: "",
-};
-
-function formReducer(state, action) {
-    switch (action.type) {
-        case "change":
-            return { ...state, [action.field]: action.value };
-        case "reset":
-            return initialForm;
-        default:
-            return state;
-    }
-}
-
 const Login = () => {
     const navigate = useNavigate();
-    const [state, dispatch] = useReducer(formReducer, initialForm);
+    const [state, dispatch] = useForm({ userName: "", password: "" });
     const { user, setUser } = useUser();
 
     const registerUser = (userName, password) => {

@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useUser } from "../contexts/UserContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 import "./Comments.css";
 
 export default function Comments() {
     const { user, setUser } = useUser();
     const [comment, setComment] = useState("");
-    const [comments, setComments] = useState(
-        localStorage.getItem("comments")
-            ? JSON.parse(localStorage.getItem("comments"))
-            : []
-    );
+    const [comments, setComments] = useLocalStorage("comments", []);
 
     const handleCommentChange = (value) => {
         setComment(value);
