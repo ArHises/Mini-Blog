@@ -9,7 +9,7 @@ import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
-import RequireAuth from "../Components/RequireAuth";
+import RequireAuth from "../components/RequireAuth";
 
 const router = createBrowserRouter(
     createRoutesFromElements(

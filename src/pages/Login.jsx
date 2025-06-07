@@ -43,7 +43,6 @@ const Login = () => {
         return (
             <div>
                 <h1>Welcome back, {user.userName}!</h1>
-                <p>You are already logged in.</p>
                 <button className="logout-button" onClick={logOutUser}>
                     Logout
                 </button>
@@ -71,6 +70,8 @@ const Login = () => {
                         })
                     }
                     placeholder="Username"
+                    minLength={4}
+                    required
                 />
                 <input
                     type="password"
@@ -83,6 +84,8 @@ const Login = () => {
                         })
                     }
                     placeholder="Password"
+                    minLength={4}
+                    required
                 />
                 <button type="submit">Login</button>
             </form>
