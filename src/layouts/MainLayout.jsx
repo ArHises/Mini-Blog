@@ -6,7 +6,7 @@ import "./MainLayout.css"; // Assuming you have a CSS file for styling
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className="main-layout">
             <Navbar />
             <main>
                 <Outlet />

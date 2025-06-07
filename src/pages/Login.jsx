@@ -61,6 +61,7 @@ const Login = () => {
                     navigate("/dashboard");
                 }}>
                 <input
+                    name="userName"
                     value={state.userName}
                     onChange={(e) =>
                         dispatch({
@@ -74,6 +75,7 @@ const Login = () => {
                     required
                 />
                 <input
+                    name="password"
                     type="password"
                     value={state.password}
                     onChange={(e) =>

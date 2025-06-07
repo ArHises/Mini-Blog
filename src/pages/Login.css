@@ -21,3 +21,10 @@ form {
     border: #9d1313 solid 1px;
     box-shadow: #ff766c 0px 0px 10px;
 }
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 75%;
+        padding: 1rem;
+    }
+}

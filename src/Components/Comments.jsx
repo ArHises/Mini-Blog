@@ -35,29 +35,34 @@ export default function Comments() {
 
     return (
         <div className="comments-container">
-            <h1>Comments</h1>
-            <p>This is where the comments will be displayed.</p>
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    handleCommentSubmit(e);
-                }}>
-                <p>from: {user.userName}</p>
-                <div className="comment-input">
-                    <textarea
-                        onChange={(e) => handleCommentChange(e.target.value)}
-                        value={comment}
-                        placeholder="leave your comment here..."
-                        minLength={1}
-                        maxLength={200}
-                        required
-                        rows={2}
-                    />
-                    <button type="submit" title="Send">
-                        Send
-                    </button>
-                </div>
-            </form>
+            <div className="comments-form">
+                <h1>Comments</h1>
+                <p>This is where the comments will be displayed.</p>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        handleCommentSubmit(e);
+                    }}>
+                    <p>from: {user.userName}</p>
+                    <div className="comment-input">
+                        <textarea
+                            name="comment"
+                            onChange={(e) =>
+                                handleCommentChange(e.target.value)
+                            }
+                            value={comment}
+                            placeholder="leave your comment here..."
+                            minLength={1}
+                            maxLength={200}
+                            required
+                            rows={2}
+                        />
+                        <button type="submit" title="Send">
+                            Send
+                        </button>
+                    </div>
+                </form>
+            </div>
             <div>
                 {comments.length > 0 ? (
                     <ul className="comments-list">

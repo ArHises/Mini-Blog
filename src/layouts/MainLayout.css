@@ -8,11 +8,28 @@ main > div {
 }
 
 main > div {
-    margin: 10%;
+    /* margin: 10%; */
     background: #000000aa;
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     margin-top: 1rem;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+    main > div {
+        margin: 5%;
+        padding: 1rem;
+    }
+    main > div h1 {
+        font-size: 1.5rem;
+    }
+    main > div p {
+        font-size: 0.9rem;
+    }
+    main > div img {
+        width: 100%;
+        height: auto;
+    }
 }
