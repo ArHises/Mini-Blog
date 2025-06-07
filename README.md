@@ -7,7 +7,7 @@ A modern, responsive blog application built with React and Vite. This project de
 -   User authentication (login/logout) with React Context and localStorage
 -   Protected routes (dashboard only accessible when logged in)
 -   Responsive navigation bar with active link highlighting
--   Comments section with persistent storage and YouTube-style input
+-   Comments section with persistent storage
 -   Unsplash API integration to display random images
 -   Custom hooks for form management and localStorage
 -   Modular, maintainable code structure
